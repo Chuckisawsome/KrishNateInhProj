@@ -1,10 +1,10 @@
-public class Human {
+public class Person {
     protected String name;
     protected int age;
     protected int money;
     protected int hunger;
 
-    public Human(int money, int hunger, String name, int age) {
+    public Person(int money, int hunger, String name, int age) {
         this.money = money;
         this.hunger = hunger;
         this.name = name;

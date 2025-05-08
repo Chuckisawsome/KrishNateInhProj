@@ -1,23 +1,19 @@
 public class Cook extends Employee {
     private String dish;
 
-    public Cook(int money, int hunger, String name, int age, double wage, String position, String dish) {
-        super(money, hunger, name, age, wage, position);
+    public Cook(int money, int hunger, String name, int age, double wage, String job, String dish) {
+        super(money, hunger, name, age, wage, job);
         this.dish = dish;
     }
 
     public void cookFood(String dish) {
         this.dish = dish;
-        System.out.println(name + " is cooking " + dish);
-    }
-
-    @Override
-    public void increaseWage() {
-        wage += 1.0;
+        System.out.println("👨‍🍳 You cooked: " + dish + ".");
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Dish: " + dish;
+        return String.format("Cook %s, Age %d, Money $%d, Hunger %d/10, Dish: %s, Wage: $%.2f",
+                name, age, money, hunger, dish, wage);
     }
 }

@@ -1,11 +1,11 @@
-public class Employee extends Human {
+public class Employee extends Person {
     protected double wage;
-    protected String position;
+    protected String job;
 
-    public Employee(int money, int hunger, String name, int age, double wage, String position) {
+    public Employee(int money, int hunger, String name, int age, double wage, String job) {
         super(money, hunger, name, age);
         this.wage = wage;
-        this.position = position;
+        this.job = job;
     }
 
     public double getWage() {
@@ -16,12 +16,17 @@ public class Employee extends Human {
         this.wage = wage;
     }
 
-    public void increaseWage() {
-        // Default behavior — override in subclasses
+    public String getJob() {
+        return job;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + ", Position: " + position + ", Wage: $" + wage;
+    public void increaseWage() {
+        if (job.equalsIgnoreCase("Cook")) {
+            wage += 1.0;
+        } else if (job.equalsIgnoreCase("Server")) {
+            if (age % 3 == 0) {
+                wage += 1.0;
+            }
+        }
     }
 }

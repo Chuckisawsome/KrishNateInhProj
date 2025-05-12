@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Random;
 
 public class Main {
@@ -11,15 +12,40 @@ public class Main {
         System.out.print("Enter your name: ");
         String name = input.nextLine();
 
-        System.out.print("Enter your age: ");
-        int age = input.nextInt();
+        int age = 0;
+        boolean validAge = false;
 
-        System.out.print("Enter how much money you have: ");
-        int money = input.nextInt();
+        
+        
+        int money = 0;
+        boolean validMoney = false;
 
-        System.out.print("Enter your hunger level (1-10): ");
-        int hunger = input.nextInt();
-        input.nextLine();
+        while (!validMoney){
+            System.out.println("Enter how much money you have: ");
+            try {
+                age = input.nextInt();
+                validMoney = true;
+            }
+            catch (InputMismatchException e){
+                System.out.println("Invalid input. Please enter a number");
+                input.next();
+            }
+        }
+
+         int hunger = 0;
+        boolean validHunger = false;
+
+        while (!validHunger){
+            System.out.println("Enter your hunger level (1-10): ");
+            try {
+                hunger = input.nextInt();
+                validHunger= true;
+            }
+            catch (InputMismatchException e){
+                System.out.println("Invalid input. Please enter a number");
+                input.next();
+            }
+        }
 
         int interactionCount = 0;
         Employee currentEmployee = null;
